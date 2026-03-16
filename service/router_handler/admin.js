@@ -360,9 +360,9 @@ exports.getRevertList = (req, res) => {
 
 // 3.3 关键词查找招领信息的路由
 exports.getKeywordClaimList = (req, res) => {
-    const keyword = `'%` + req.query.keyword + `%'`
-    const sql = 'select * from t_claim where resume like ' + keyword + ' or `describe` like ' + keyword
-    db.query(sql, (err, results) => {
+    const keyword = '%' + req.query.keyword + '%'
+    const sql = 'select * from t_claim where resume like ? or `describe` like ?'
+    db.query(sql, [keyword, keyword], (err, results) => {
         if (err) return res.cc(err)
         res.send({
             status: 0,
@@ -374,9 +374,9 @@ exports.getKeywordClaimList = (req, res) => {
 
 // 3.4 关键词查找寻物信息的路由
 exports.getKeywordRevertList = (req, res) => {
-    const keyword = `'%` + req.query.keyword + `%'`
-    const sql = 'select * from t_revert where resume like ' + keyword + ' or `describe` like ' + keyword
-    db.query(sql, (err, results) => {
+    const keyword = '%' + req.query.keyword + '%'
+    const sql = 'select * from t_revert where resume like ? or `describe` like ?'
+    db.query(sql, [keyword, keyword], (err, results) => {
         if (err) return res.cc(err)
         res.send({
             status: 0,

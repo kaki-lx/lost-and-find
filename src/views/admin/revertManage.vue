@@ -27,7 +27,7 @@
                 <el-table-column prop="" label="物品描述" header-align="center" align="center">
                     <template slot-scope="scope">
                         <p> {{scope.row.resume}} </p>
-                        <p> {{scope.row.describe}}</p>
+                        <p> {{scope.row.description}}</p>
                     </template>
                 </el-table-column>
 
@@ -145,7 +145,7 @@
                             :labelStyle="{'width': '20%', 'text-align': 'center'}" 
                             :contentStyle="{'width': '80%', 'text-align': 'center'}">
                             <el-descriptions-item label="丢失时间">{{view.date}}</el-descriptions-item>
-                            <el-descriptions-item label="物品详情">{{view.describe}}</el-descriptions-item>
+                            <el-descriptions-item label="物品详情">{{view.description}}</el-descriptions-item>
                         </el-descriptions>
 
                         <el-descriptions 
@@ -241,8 +241,8 @@
                         </el-row>
                         <el-row :gutter="20">
                             <el-col :span="24">
-                                <el-form-item label="详情" prop="describe" :label-width="formLabelWidth">
-                                    <el-input type="textarea" :rows="2" placeholder="请输入物品详细信息" v-model.trim="form.describe" maxlength="30" show-word-limit></el-input>
+                                <el-form-item label="详情" prop="description" :label-width="formLabelWidth">
+                                    <el-input type="textarea" :rows="2" placeholder="请输入物品详细信息" v-model.trim="form.description" maxlength="30" show-word-limit></el-input>
                                 </el-form-item>
                             </el-col>
                         </el-row>
@@ -540,7 +540,7 @@ export default {
                             type: this.form.type,
                             location: this.form.location,
                             resume: this.form.resume,
-                            describe: this.form.describe,
+                            description: this.form.description,
                             date: this.form.date,
                             initiatorPhone: this.form.initiatorPhone,
                             initiatorWechat: this.form.initiatorWechat,
