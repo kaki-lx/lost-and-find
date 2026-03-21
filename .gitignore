@@ -1,5 +1,9 @@
 .DS_Store
 node_modules
+public/claim_pic
+public/no_pic
+public/revert_pic
+public/user_pic
 /dist
 
 
