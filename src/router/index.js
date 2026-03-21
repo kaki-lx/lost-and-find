@@ -19,7 +19,7 @@ import userHandleClaim from "../views/user/userHandleClaim.vue"
 import userHandleRevert from "../views/user/userHandleRevert.vue"
 
 import adminMain from "../views/admin/adminMain.vue"
-import adminIndex from "../views/admin/index.vue"
+import adminIndex from "../views/admin/admin_index.vue"
 import adminUserInfoManage from "../views/admin/userInfoManage.vue"
 import adminManagerInfoManage from "../views/admin/managerInfoManage.vue"
 import adminUserLOAManage from "../views/admin/userLOAManage"

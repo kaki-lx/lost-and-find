@@ -5,7 +5,7 @@
                 <div class="form">
                     <el-form :model="form" :rules="rules" ref="form" label-width="140px" class="demo-ruleForm">
                         <el-form-item label="原密码" prop="oldPwd">
-                            <el-input v-model.trim="form.oldPwd"  show-password></el-input>
+                            <el-input v-model.trim="form.oldPwd" show-password></el-input>
                         </el-form-item>
                         <el-form-item label="新密码" prop="newPwd">
                             <el-input v-model.trim="form.newPwd" type="password" show-password></el-input>
@@ -22,16 +22,14 @@
             </el-tab-pane>
 
             <el-tab-pane label="设置密保" name="second">
-                <el-form :model="protectForm" :rules="protectRules" ref="protectForm" label-width="80px" class="demo-ruleForm">
+                <el-form :model="protectForm" :rules="protectRules" ref="protectForm" label-width="80px"
+                    class="demo-ruleForm">
                     <el-row :gutter="20">
                         <el-col :span="8">
                             <el-form-item label="问题1" prop="question_1">
                                 <el-select v-model="protectForm.question_1" placeholder="请选择">
-                                    <el-option
-                                    v-for="item in options.slice(0,6)"
-                                    :key="item.value"
-                                    :label="item.label"
-                                    :value="item.value">
+                                    <el-option v-for="item in options.slice(0, 6)" :key="item.value" :label="item.label"
+                                        :value="item.value">
                                     </el-option>
                                 </el-select>
                             </el-form-item>
@@ -46,11 +44,8 @@
                         <el-col :span="8">
                             <el-form-item label="问题2" prop="question_2">
                                 <el-select v-model="protectForm.question_2" placeholder="请选择">
-                                    <el-option
-                                    v-for="item in options.slice(6,11)"
-                                    :key="item.value"
-                                    :label="item.label"
-                                    :value="item.value">
+                                    <el-option v-for="item in options.slice(6, 11)" :key="item.value" :label="item.label"
+                                        :value="item.value">
                                     </el-option>
                                 </el-select>
                             </el-form-item>
@@ -65,11 +60,8 @@
                         <el-col :span="8">
                             <el-form-item label="问题3" prop="question_3">
                                 <el-select v-model="protectForm.question_3" placeholder="请选择">
-                                    <el-option
-                                    v-for="item in options.slice(11,15)"
-                                    :key="item.value"
-                                    :label="item.label"
-                                    :value="item.value">
+                                    <el-option v-for="item in options.slice(11, 15)" :key="item.value"
+                                        :label="item.label" :value="item.value">
                                     </el-option>
                                 </el-select>
                             </el-form-item>
@@ -90,7 +82,7 @@
                         </el-col>
                     </el-row>
 
-                    
+
 
                 </el-form>
             </el-tab-pane>
@@ -133,12 +125,12 @@ export default {
                 answer_3: '',
             },
             protectRules: {
-                question_1: [ { required: true, message: '请选择第一个密保问题', trigger: 'blur' } ],
-                answer_1: [ { required: true, message: '请回答第一个密保问题', trigger: 'blur' } ],
-                question_2: [ { required: true, message: '请选择第二个密保问题', trigger: 'blur' } ],
-                answer_2: [ { required: true, message: '请回答第二个密保问题', trigger: 'blur' } ],
-                question_3: [ { required: true, message: '请选择第三个密保问题', trigger: 'blur' } ],
-                answer_3: [ { required: true, message: '请回答第三个密保问题', trigger: 'blur' } ],
+                question_1: [{ required: true, message: '请选择第一个密保问题', trigger: 'blur' }],
+                answer_1: [{ required: true, message: '请回答第一个密保问题', trigger: 'blur' }],
+                question_2: [{ required: true, message: '请选择第二个密保问题', trigger: 'blur' }],
+                answer_2: [{ required: true, message: '请回答第二个密保问题', trigger: 'blur' }],
+                question_3: [{ required: true, message: '请选择第三个密保问题', trigger: 'blur' }],
+                answer_3: [{ required: true, message: '请回答第三个密保问题', trigger: 'blur' }],
             },
             options: [
                 // 1~6
@@ -216,8 +208,8 @@ export default {
                     Authorization: this.$store.getters.getUserToken,
                 }
             }).then((res) => {
-                if(res.data.status === 0){
-                    this.protectForm = {...res.data.data[0]}
+                if (res.data.status === 0) {
+                    this.protectForm = { ...res.data.data[0] }
                     // console.log(res.data.data, 'data');
                 }
             }).catch((err) => {
@@ -228,7 +220,7 @@ export default {
             this.$refs[form].validate((valid) => {
                 if (valid) {
                     // 判断两次新密码输入是否一致
-                    if(this.form.newPwd !== this.form.reNewPwd){
+                    if (this.form.newPwd !== this.form.reNewPwd) {
                         this.$message.warning('两次新密码输入不一致，请重新输入！')
                         this.form.newPwd = ''
                         this.form.reNewPwd = ''
@@ -246,9 +238,9 @@ export default {
                             newPwd: this.form.newPwd,
                         }
                     }).then((res) => {
-                        if(res.data.status === 1){
+                        if (res.data.status === 1) {
                             this.$message.warning(res.data.message)
-                        }else if(res.data.status === 0){
+                        } else if (res.data.status === 0) {
                             this.$message.success(res.data.message)
                         }
                         this.resetForm(form)
@@ -264,9 +256,9 @@ export default {
         resetForm(form) {
             this.$refs[form].resetFields();
         },
-        handleClick(tab, event) {
+        handleClick(tab/*, event*/) {
             // console.log(tab.name)
-            if(tab.name === 'second'){
+            if (tab.name === 'second') {
                 this.getPswProtect()
             }
         },
@@ -290,15 +282,15 @@ export default {
                             lastEditDate: getCurrentDate()
                         }
                     }).then((res) => {
-                        if(res.data.status === 1){
+                        if (res.data.status === 1) {
                             this.$message.warning(res.data.message)
-                        }else if(res.data.status === 0){
+                        } else if (res.data.status === 0) {
                             this.$message.success(res.data.message)
                         }
                     }).catch((err) => {
                         console.log(err, 'err')
                     })
-                }else {
+                } else {
                     console.log('error submit!!');
                     return false;
                 }
@@ -322,9 +314,9 @@ export default {
                         lastEditDate: getCurrentDate()
                     }
                 }).then((res) => {
-                    if(res.data.status === 1){
+                    if (res.data.status === 1) {
                         this.$message.warning(res.data.message)
-                    }else if(res.data.status === 0){
+                    } else if (res.data.status === 0) {
                         this.$message.success(res.data.message)
                         this.getPswProtect()
                     }
@@ -332,7 +324,7 @@ export default {
                     console.log(err, 'err')
                 })
             }).catch(() => {
-                this.$message.info('已取消清除')         
+                this.$message.info('已取消清除')
             });
         }
     }
@@ -347,7 +339,7 @@ export default {
     align-items: center;
     // background-color: aqua;
 
-    .el-tabs{
+    .el-tabs {
         width: 100%;
         height: auto;
         margin-top: 10px;
@@ -357,10 +349,11 @@ export default {
     .title {
         width: 80%;
         text-align: center;
-    } 
+    }
 
     .form {
         width: 50%;
+
         .el-input {
             width: 70%;
         }

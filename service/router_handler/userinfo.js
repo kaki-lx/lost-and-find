@@ -249,7 +249,7 @@ exports.deleteClaimPic = (req, res) => {
     db.query(sql, [req.query.article_pic, req.query.id], (err, results) => {
         if (err) return res.cc(err)
         if (results.length > 0) res.cc('图片资源占用，未执行删除')
-        if (results.length = 0) {
+        if (results.length === 0) {
             const path = '../public/claim_pic/' + req.query.article_pic
             fs.unlink(path, (err) => {
                 if (err) res.cc(err)
@@ -345,7 +345,7 @@ exports.deleteRevertPic = (req, res) => {
     db.query(sql, [req.query.article_pic, req.query.id], (err, results) => {
         if (err) return res.cc(err)
         if (results.length > 0) res.cc('图片资源占用，未执行删除')
-        if (results.length = 0) {
+        if (results.length === 0) {
             const path = '../public/revert_pic/' + req.query.article_pic
             fs.unlink(path, (err) => {
                 if (err) res.cc(err)
@@ -506,7 +506,8 @@ exports.updateNotice = (req, res) => {
         if (err) return res.cc(err)
         res.send({
             status: 0,
-            message: '修改成功！'
+            message: '修改成功！',
+            data: results
         })
     })
 }

@@ -141,20 +141,20 @@
           <el-col :span="8">
             <el-form-item label="拾物者电话号码" prop="handlerPhone" :label-width="80">
               <el-tag type="success" style="font-size: 16px; width: 100%;">{{ form.handlerPhone == '' ?
-                '未填写' : form.handlerPhone}}</el-tag>
+                '未填写' : form.handlerPhone }}</el-tag>
             </el-form-item>
           </el-col>
 
           <el-col :span="8">
             <el-form-item label="拾物者微信号" prop="handlerWechat" :label-width="80">
               <el-tag type="success" style="font-size: 16px; width: 100%;">{{ form.handlerWechat == '' ?
-                '未填写' : form.handlerWechat}}</el-tag>
+                '未填写' : form.handlerWechat }}</el-tag>
             </el-form-item>
           </el-col>
           <el-col :span="8">
             <el-form-item label="拾物者QQ" prop="handlerQQ" :label-width="80">
               <el-tag type="success" style="font-size: 16px; width: 100%;">{{ form.handlerQQ == '' ?
-                '未填写' :form.handlerQQ}}</el-tag>
+                '未填写' : form.handlerQQ }}</el-tag>
             </el-form-item>
           </el-col>
         </el-row>
@@ -253,9 +253,9 @@ export default {
         });
       });
     },
-    handleClick(row) {
+    /*handleClick(row) {
       // console.log(row);
-    },
+    },*/
     handleView(index, row) {
       this.dialogVisible = true
       this.dialogDisabled = true
@@ -364,7 +364,7 @@ export default {
               id: row.id
             }
           }).then((res) => {
-            // console.log(res.data.message)
+            console.log(res.data.message)
           }).catch((err) => {
             console.log(err)
           })

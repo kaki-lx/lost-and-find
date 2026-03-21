@@ -12,7 +12,7 @@
         </div>
 
         <div class="TWO">
-            <el-table :data="viewList" border highlight-current-row style="width: 100%; text-algin: center;">
+            <el-table :data="viewList" border highlight-current-row style="width: 100%; text-align: center;">
                 <el-table-column prop="id" label="ID" width="80" sortable header-align="center"
                     align="center"></el-table-column>
 
@@ -398,7 +398,7 @@ export default {
                         user_pic: this.files[0].name,
                         id: this.form.id,
                     }
-                }).then((res) => {
+                }).then((/*res*/) => {
                     this.$message.success('上传头像成功！')
                     this.avatarDialogVisible = false
                 }).catch((err) => {

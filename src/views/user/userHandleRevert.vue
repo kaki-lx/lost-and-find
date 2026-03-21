@@ -137,7 +137,8 @@
           <el-col :span="8">
             <el-form-item label="失主电话号码" prop="initiatorPhone" :label-width="80">
               <el-tag type="success" style="font-size: 16px; width: 100%"
-                v-if="form.isFound == 2 || form.isFound == 0">{{ form.initiatorPhone }}</el-tag>
+                v-if="form.isFound == 2 || form.isFound == 0">{{
+                  form.initiatorPhone }}</el-tag>
               <el-tag type="success" style="font-size: 16px; width: 100%" v-if="form.isFound == 3">申请通过后可查看</el-tag>
             </el-form-item>
           </el-col>
@@ -145,14 +146,16 @@
           <el-col :span="8">
             <el-form-item label="失主微信号" prop="initiatorWechat" :label-width="80">
               <el-tag type="success" style="font-size: 16px; width: 100%"
-                v-if="form.isFound == 2 || form.isFound == 0">{{ form.initiatorWechat }}</el-tag>
+                v-if="form.isFound == 2 || form.isFound == 0">{{
+                  form.initiatorWechat }}</el-tag>
               <el-tag type="success" style="font-size: 16px; width: 100%" v-if="form.isFound == 3">申请通过后可查看</el-tag>
             </el-form-item>
           </el-col>
           <el-col :span="8">
             <el-form-item label="失主QQ" prop="initiatorQQ" :label-width="80">
               <el-tag type="success" style="font-size: 16px; width: 100%"
-                v-if="form.isFound == 2 || form.isFound == 0">{{ form.initiatorQQ }}</el-tag>
+                v-if="form.isFound == 2 || form.isFound == 0">{{
+                  form.initiatorQQ }}</el-tag>
               <el-tag type="success" style="font-size: 16px; width: 100%" v-if="form.isFound == 3">申请通过后可查看</el-tag>
             </el-form-item>
           </el-col>
@@ -244,9 +247,9 @@ export default {
         });
       });
     },
-    handleClick(row) {
+    /*handleClick(row) {
       // console.log(row);
-    },
+    },*/
     handleView(index, row) {
       this.dialogVisible = true
       this.dialogDisabled = true
